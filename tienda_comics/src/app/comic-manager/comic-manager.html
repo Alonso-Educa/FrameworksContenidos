@@ -1,0 +1,40 @@
+<h2>Tienda de Cómics</h2>
+<button (click)="toggleVista()">
+  Cambiar a vista {{ mostrarModoCompacto() ? 'Detallada' : 'Compacta' }}
+</button>
+<hr />
+@if (mostrarModoCompacto()) {
+  <!-- Vista Compacta (Solo lista) -->
+  <ul>
+    @for (comic of comics(); track comic.id) {
+      <li>
+        <strong>{{ comic.titulo }}</strong> - Stock: {{ comic.stock }}
+      </li>
+    }
+  </ul>
+} @else {
+  <!-- Vista Detallada (Tarjetas completas con botones) -->
+  <!-- (Aquí va el contenedor con tarjetas que hicimos en las misiones anteriores) -->
+  <div class="contenedor-comics">
+    @for (comic of comics(); track comic.id) {
+      <div style="border: 1px solid #ccc; margin: 10px; padding: 10px">
+        <h3>{{ comic.titulo }}</h3>
+        <p>Precio: {{ comic.precio }} €</p>
+        <p>Stock disponible: {{ comic.stock }} unidades</p>
+        @if (comic.stock > 0) {
+          <span style="color: green"> En stock</span>
+        } @else {
+          <span style="color: red; font-weight: bold"> ¡AGOTADO!</span>
+        }
+        <br /><br />
+        <button (click)="aumentarStock(comic.id)">Añadir 1</button>
+        <button (click)="venderComic(comic.id)" [disabled]="comic.stock === 0">Vender 1</button>
+      </div>
+    } @empty {
+      <p>No hay cómics registrados en el inventario.</p>
+    }
+  </div>
+
+  <br /><br />
+  <button (click)="vaciarAlmacen()">Vaciar almacén</button>
+}

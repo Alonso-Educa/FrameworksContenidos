@@ -1,0 +1,13 @@
+Solo hechos los pasos 1 y 2 en la primera clase, actualizado nodejs a ultima versión lts
+
+1. Comprobar versión de node
+node -v
+
+2. Instalar el cli de angular globalmente
+npm install -g @angular/cli
+
+3. Crear nuevo proyecto
+ng hola_mundo
+
+4. Levantar servidor de desarrollo
+cd hola_mundo && ng server -open

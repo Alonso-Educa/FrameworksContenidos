@@ -1,0 +1,31 @@
+<main class="container">
+  <h1>Gestor de Colecciones de Juegos</h1>
+  <p class="subtitulo">Arquitectura Modular con Signals e Inyección de Dependencias</p>
+  <!-- Formulario de juego -->
+  <div class="formulario">
+    <section>
+      <input type="text" [value]="nuevoTituloJuegoInput()" (input)="actualizarTitulo($event)"
+        placeholder="Escribe el título del juego..." />
+      <input type="text" [value]="nuevoPlataformaJuegoInput()" (input)="actualizarPlataforma($event)"
+        placeholder="Escribe la plataforma del juego..." />
+      <input type="text" [value]="nuevoAnioJuegoInput()" (input)="actualizarAnio($event)"
+        placeholder="Escribe el año de salida del juego..." />
+      <input type="text" [value]="nuevoPrincipalJuegoInput()" (input)="actualizarPrincipal($event)"
+        placeholder="Escribe si el juego es un spin-off o es un juego principal..." />
+    </section>
+
+    <button (click)="agregar()">Añadir juego</button>
+  </div>
+  <!-- Listado de juegos usando el componente hijo -->
+  <div class="lista">
+    <!-- Importa y utiliza el componente hijo <app-juego-item> dentro del bucle @for en el HTML del padre: -->
+    @for (item of listaJuegos(); track $index) {
+    <!-- Pásale el juego mediante corchetes [juego]. -->
+    <!-- Escucha el evento de borrado mediante paréntesis (onEliminar). -->
+    <app-juego-item [juego]="item" [index]="$index" (onEliminar)="borrar($event)" />
+    } @empty {
+    <!-- Añade un bloque "@empty" para mostrar un mensaje elegante cuando no hayan juegos en la coleccion. -->
+    <p class="vacio">No hay juegos en la colección. Añade alguno usando el formulario de arriba</p>
+    }
+  </div>
+</main>

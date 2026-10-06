@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #333;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        let x = 0;
+        function incrementar() {
+            x = x + 1;
+            document.getElementById("contador").innerHTML = x;
+        }
+        function decrementar() {
+            x = x - 1;
+            document.getElementById("contador").innerHTML = x;
+        }
+        function reiniciar() {
+            x = 0;
+            document.getElementById("contador").innerHTML = '0';
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Contador</h1>
+
+    <h2 id="contador">0</h2>
+
+    <button type="button" onclick="decrementar()">-1</button>
+    <button type="button" onclick="reiniciar()">Reiniciar</button>
+    <button type="button" onclick="incrementar()">+1</button>
+</body>
+
+</html>

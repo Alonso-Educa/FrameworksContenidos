@@ -1,0 +1,2 @@
+ng new nombre_proyecto --skip-git: Permite evitar el commit inicial
+Crear un .gitignore con 'node_modules/'

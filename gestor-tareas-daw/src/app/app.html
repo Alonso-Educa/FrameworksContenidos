@@ -1,0 +1,26 @@
+<main class="container">
+  <h1>Gestor de Tareas DAW</h1>
+  <p class="subtitulo">Arquitectura Modular con Signals e Inyección de Dependencias</p>
+  <!-- Formulario de tarea -->
+  <div class="formulario">
+    <input
+      type="text"
+      [value]="nuevaTareaInput()"
+      (input)="actualizarTexto($event)"
+      placeholder="Escribe una nueva tarea..."
+    />
+    <button (click)="agregar()">Añadir tarea</button>
+  </div>
+  <!-- Listado de tareas usando el componente hijo -->
+  <div class="lista">
+    <!-- Importa y utiliza el componente hijo <app-tarea-item> dentro del bucle @for en el HTML del padre: -->
+    @for (item of listaTareas(); track $index) {
+        <!-- Pásale la tarea mediante corchetes [tarea]. -->
+        <!-- Escucha el evento de borrado mediante paréntesis (onEliminar). -->
+      <app-tarea-item [tarea]="item" [index]="$index" (onEliminar)="borrar($event)" />
+    } @empty {
+        <!-- Añade un bloque "@empty" para mostrar un mensaje elegante cuando no queden tareas pendientes. -->
+      <p class="vacio">No hay tareas pendientes. ¡Buen trabajo!</p>
+    }
+  </div>
+</main>
