@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Juegos } from './servicios/juegos';
 import { JuegoItem } from './componentes/juego-item/juego-item';
 
@@ -7,7 +7,7 @@ import { JuegoItem } from './componentes/juego-item/juego-item';
   standalone: true,
   imports: [JuegoItem],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   // Inyecta el servicio JuegosService en el AppComponent utilizando la función moderna inject().
@@ -20,6 +20,10 @@ export class App {
   nuevoPlataformaJuegoInput = signal('');
   nuevoAnioJuegoInput = signal('');
   nuevoPrincipalJuegoInput = signal('');
+
+  totalTareas = computed(() => {
+    return this.listaJuegos().length;
+  });
   
   // Arreglar esto
   actualizarTitulo(event: Event) {
@@ -28,7 +32,7 @@ export class App {
   }
   actualizarPlataforma(event: Event) {
     const valor = (event.target as HTMLInputElement).value;
-    this.nuevoPlataformaJuegoInput.set(valor); 
+    this.nuevoPlataformaJuegoInput.set(valor);
   }
   actualizarAnio(event: Event) {
     const valor = (event.target as HTMLInputElement).value;
@@ -39,12 +43,17 @@ export class App {
     this.nuevoPrincipalJuegoInput.set(valor);
   }
   agregar() {
-    this.juegosService.anadirJuego([this.nuevoTituloJuegoInput(),this.nuevoPlataformaJuegoInput(),this.nuevoAnioJuegoInput(),this.nuevoPrincipalJuegoInput()]);
+    this.juegosService.anadirJuego([
+      this.nuevoTituloJuegoInput(),
+      this.nuevoPlataformaJuegoInput(),
+      this.nuevoAnioJuegoInput(),
+      this.nuevoPrincipalJuegoInput(),
+    ]);
     // Limpiamos los inputs
-    this.nuevoTituloJuegoInput.set(''); 
-    this.nuevoPlataformaJuegoInput.set(''); 
-    this.nuevoAnioJuegoInput.set(''); 
-    this.nuevoPrincipalJuegoInput.set(''); 
+    this.nuevoTituloJuegoInput.set('');
+    this.nuevoPlataformaJuegoInput.set('');
+    this.nuevoAnioJuegoInput.set('');
+    this.nuevoPrincipalJuegoInput.set('');
   }
   borrar(index: number) {
     this.juegosService.eliminarJuego(index);

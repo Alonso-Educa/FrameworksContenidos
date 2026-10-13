@@ -18,6 +18,7 @@
   </div>
   <!-- Listado de juegos usando el componente hijo -->
   <div class="lista">
+    <h3>Cantidad total ({{ totalTareas() }}):</h3>
     <!-- Importa y utiliza el componente hijo <app-juego-item> dentro del bucle @for en el HTML del padre: -->
     @for (item of listaJuegos(); track $index) {
     <!-- Pásale el juego mediante corchetes [juego]. -->

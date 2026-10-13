@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 
 // decorado con @Injectable({ providedIn: 'root' }) para que sea global (Singleton).
 @Injectable({
@@ -7,19 +7,25 @@ import { Injectable, signal } from '@angular/core';
 export class Juegos {
   // array inicial de al menos 5 juegos.
   _juegos = signal<string[][]>([
-  ['Titulo1','Plataforma1','Anio1','isPrincipal1'],
-  ['Titulo2','Plataforma2','Anio2','isPrincipal2'],
-  ['Titulo3','Plataforma3','Anio3','isPrincipal3'],
-  ['Titulo4','Plataforma4','Anio4','isPrincipal4'],
-  ['Titulo5','Plataforma5','Anio5','isPrincipal5'],
-]);
+    ['New Super Mario Bros', 'Nintendo DS', '2006', 'Principal'],
+    ['Mario Party 9', 'Wii', '2012', 'Spin-Off'],
+    ["Yoshi's New Island", 'Nintendo 3DS', '2014', 'Spin-Off'],
+    ['Super Mario Odissey', 'Nintendo Switch', '2017', 'Principal'],
+    ['Super Mario 64', 'Nintendo 64', '1996', 'Principal'],
+  ]);
 
   readonly juegos = this._juegos.asReadonly();
-  
+
   // método público para añadir un nuevo juego a la lista.
   anadirJuego(nuevoJuego: string[]) {
-    if (nuevoJuego.length==0) return;
-    else if (nuevoJuego[0] == '' || nuevoJuego[1] == '' || nuevoJuego[2] == '' || nuevoJuego[3] == '') return;
+    if (nuevoJuego.length == 0) return;
+    else if (
+      nuevoJuego[0] == '' ||
+      nuevoJuego[1] == '' ||
+      nuevoJuego[2] == '' ||
+      nuevoJuego[3] == ''
+    )
+      return;
     this._juegos.update((listaJuegos) => [...listaJuegos, nuevoJuego]);
   }
 
