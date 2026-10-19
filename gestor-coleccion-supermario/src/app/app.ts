@@ -13,7 +13,8 @@ export class App {
   // Inyecta el servicio JuegosService en el AppComponent utilizando la función moderna inject().
   private juegosService = inject(Juegos);
   // Conecta la lista de juegos del servicio con el componente padre.
-  listaJuegos = this.juegosService._juegos;
+  listaJuegos = this.juegosService.juegos;
+  totalJuegos = this.juegosService.totalJuegos;
   // Prepara una Signal local y un formulario básico (input de texto + botón) en la
   // plantilla del padre para dar de alta nuevos juegos interactivamente.
   nuevoTituloJuegoInput = signal('');
@@ -21,11 +22,6 @@ export class App {
   nuevoAnioJuegoInput = signal('');
   nuevoPrincipalJuegoInput = signal('');
 
-  totalTareas = computed(() => {
-    return this.listaJuegos().length;
-  });
-  
-  // Arreglar esto
   actualizarTitulo(event: Event) {
     const valor = (event.target as HTMLInputElement).value;
     this.nuevoTituloJuegoInput.set(valor);

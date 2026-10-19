@@ -1,5 +1,5 @@
 <main class="container">
-  <h1>Gestor de Colecciones de Juegos</h1>
+  <h1>Gestor de Colecciones de Juegos ({{ totalJuegos() }})</h1>
   <p class="subtitulo">Arquitectura Modular con Signals e Inyección de Dependencias</p>
   <!-- Formulario de juego -->
   <div class="formulario">
@@ -18,7 +18,6 @@
   </div>
   <!-- Listado de juegos usando el componente hijo -->
   <div class="lista">
-    <h3>Cantidad total ({{ totalTareas() }}):</h3>
     <!-- Importa y utiliza el componente hijo <app-juego-item> dentro del bucle @for en el HTML del padre: -->
     @for (item of listaJuegos(); track $index) {
     <!-- Pásale el juego mediante corchetes [juego]. -->
