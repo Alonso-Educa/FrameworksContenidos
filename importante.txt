@@ -1,2 +1,6 @@
 ng new nombre_proyecto --skip-git: Permite evitar el commit inicial
 Crear un .gitignore con 'node_modules/'
+
+Crear componente: ng g c componentes/tarea-item --inline-template --inline-style --standalone
+Crear servicio: ng g s servicios/tareas
+Crear interfaz: ng g i interfaces/tarea-interfaz
