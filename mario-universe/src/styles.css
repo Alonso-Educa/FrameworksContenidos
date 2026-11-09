@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+/* Estilos GLOBALES: se aplican a toda la app.
+   Los de cada componente (styleUrl o styles) solo afectan a ese componente. */
+:root {
+  --rojo: #e60012;
+  --azul: #1d4ed8;
+  --amarillo: #ffd500;
+  --fondo: #f4f6fb;
+  --borde: #d8deea;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); color: #1b1f2a; }
+
+.contenedor { max-width: 1050px; margin: 0 auto; padding: 1rem; }
+.panel { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; background: #fff; border: 1px solid var(--borde); border-radius: 10px; padding: .8rem 1rem; margin: .8rem 0; }
+
+.btn { display: inline-block; background: var(--rojo); color: #fff; border: 0; border-radius: 6px; padding: .5rem .9rem; font-weight: 600; font-size: .95rem; cursor: pointer; text-decoration: none; }
+.btn:hover { filter: brightness(.9); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-secundario { background: var(--azul); }
+.btn-peligro { background: #4b5563; }
+.btn-mini { background: rgba(255, 255, 255, .2); color: #fff; border: 0; border-radius: 6px; padding: .2rem .6rem; font-weight: 700; cursor: pointer; }
+.btn-mini:hover { background: rgba(255, 255, 255, .35); }
+
+input[type='text'], input[type='number'], select { padding: .5rem .7rem; border: 1px solid var(--borde); border-radius: 6px; font-size: 1rem; background: #fff; }
+
+.aviso { padding: 1rem; text-align: center; color: #555; }
+.aviso.error { color: #b00020; }
+
+.badge { display: inline-block; padding: .1rem .5rem; margin-right: .3rem; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+.badge.principal { background: #fee2e2; color: #991b1b; }
+.badge.spinoff { background: #dbeafe; color: #1e40af; }
+.badge.genero { background: #fef9c3; color: #854d0e; }

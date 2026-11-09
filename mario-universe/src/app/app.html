@@ -1,0 +1,20 @@
+<header class="cabecera">
+  <a class="logo" routerLink="/juegos">★ Mario Universe</a>
+
+  <nav>
+    <!-- routerLink sustituye a href: navega sin recargar la página -->
+    <!-- routerLinkActive añade la clase "activo" al enlace de la ruta actual -->
+    <a routerLink="/juegos" routerLinkActive="activo">Catálogo ({{ total() }})</a>
+    <a routerLink="/misiones" routerLinkActive="activo">Misiones</a>
+  </nav>
+
+  <span class="resumen">★ {{ totalFavoritos() }} favoritos</span>
+
+  <!-- Un componente hijo se usa con su selector -->
+  <app-contador-vidas />
+</header>
+
+<main class="contenedor">
+  <!-- Aquí Angular pinta el componente de la ruta activa -->
+  <router-outlet />
+</main>

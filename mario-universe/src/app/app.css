@@ -1,0 +1,6 @@
+.cabecera { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; background: var(--rojo); color: #fff; padding: .7rem 1.2rem; }
+.logo { color: #fff; font-weight: 800; font-size: 1.3rem; text-decoration: none; }
+nav { display: flex; gap: .5rem; margin-right: auto; }
+nav a { color: #fff; text-decoration: none; padding: .3rem .7rem; border-radius: 6px; }
+nav a.activo { background: rgba(255, 255, 255, .25); font-weight: 700; }
+.resumen { font-size: .95rem; }

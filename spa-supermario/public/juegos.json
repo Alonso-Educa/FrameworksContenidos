@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "titulo": "Super Mario Odyssey",
+    "plataforma": "Nintendo Switch",
+    "anio": 2017,
+    "categoria": "Principal",
+    "descripcion": "Una aventura en 3D de estilo sandbox donde Mario viaja por distintos reinos a bordo de la nave Odyssey junto a Cappy para rescatar a la princesa Peach de Bowser.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000000129/0a2889e46a788b19a008f51608693892015ff761b0c063c6c9a9d283c748281d"
+  },
+  {
+    "id": 2,
+    "titulo": "Mario Kart 8 Deluxe",
+    "plataforma": "Nintendo Switch",
+    "anio": 2017,
+    "categoria": "Spin-off",
+    "descripcion": "El juego de carreras definitivo del universo Mario con más de 48 circuitos, gravedad cero, objetos clásicos y decenas de personajes jugables.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000000153/de6969db3103507d47228a8d00e7ff987d605178e58319f697472097e8e50b69"
+  },
+  {
+    "id": 3,
+    "titulo": "Super Mario Bros. Wonder",
+    "plataforma": "Nintendo Switch",
+    "anio": 2023,
+    "categoria": "Principal",
+    "descripcion": "Aventura de plataformas en 2D donde las Flores Maravilla transforman el mundo de juego provocando efectos alocados e insólitos en cada nivel.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000068683/f1c4842e47265a7f960a5d4d3d83d6a2e4c8397a8e5264b1d6f2122615bc0596"
+  },
+  {
+    "id": 4,
+    "titulo": "Super Mario 64",
+    "plataforma": "Nintendo 64",
+    "anio": 1996,
+    "categoria": "Principal",
+    "descripcion": "El título revolucionario que definió el género de plataformas en 3D. Salta a través de los cuadros del castillo de Peach para recolectar las estrellas de poder.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000032704/8f352136e4f3aa9fb49692488d5e82eb75b634bc3d8ab87019d0889cfdcfd090"
+  },
+  {
+    "id": 5,
+    "titulo": "Luigi's Mansion 3",
+    "plataforma": "Nintendo Switch",
+    "anio": 2019,
+    "categoria": "Spin-off",
+    "descripcion": "Luigi debe armarse de valor y usar su Succionaentes G-00 para explorar las temáticas plantas de un hotel encantado y salvar a Mario y sus amigos.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000008595/d32bbd1a42b102b48a12e365cb93bcbc00d02633d0cbfa2bc13f7dc53bdf7a4e"
+  },
+  {
+    "id": 6,
+    "titulo": "Super Mario World",
+    "plataforma": "Super Nintendo (SNES)",
+    "anio": 1990,
+    "categoria": "Principal",
+    "descripcion": "La obra maestra de 16 bits que introdujo al dinosaurio Yoshi. Explora la Isla Dinosaurio a través de decenas de niveles llenos de secretos y salidas ocultas.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000023223/065aaeb805eb37517c2a71d794cb58faae69910d6e64c1265ecb064c9ae4579d"
+  },
+  {
+    "id": 7,
+    "titulo": "Paper Mario: The Thousand-Year Door",
+    "plataforma": "Nintendo Switch / GameCube",
+    "anio": 2004,
+    "categoria": "Spin-off",
+    "descripcion": "Un aclamado RPG con estilo de papel donde Mario se alía con divertidos compañeros para descubrir el secreto oculto tras la Puerta Milenaria.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000068688/fa76ad8cece6731ea678f142b58dcfd54203adfa6fb46960762dfa7c73b0a701"
+  },
+  {
+    "id": 8,
+    "titulo": "Super Mario Galaxy",
+    "plataforma": "Wii",
+    "anio": 2007,
+    "categoria": "Principal",
+    "descripcion": "Una aventura espacial que desafía la gravedad. Viaja entre diminutos planetas y galaxias con mecánicas de física únicas para derrotar a Bowser.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000032704/00be13f8cce8e0aa6a63529fb3e34a6cf8371ef3b50c059883656127ab529681"
+  },
+  {
+    "id": 9,
+    "titulo": "Super Mario Party Jamboree",
+    "plataforma": "Nintendo Switch",
+    "anio": 2024,
+    "categoria": "Spin-off",
+    "descripcion": "La experiencia de juego de tablero definitiva de Mario con decenas de minijuegos, nuevos tableros dinámicos y modos competitivos en línea.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000084594/4e7403328ce7885b542e718698f1a8c9096207fb0813e318d18408f6d895697d"
+  },
+  {
+    "id": 10,
+    "titulo": "Super Mario Bros. 3",
+    "plataforma": "NES",
+    "anio": 1988,
+    "categoria": "Principal",
+    "descripcion": "El legendario juego que introdujo el mapa del mundo, el traje de Tanooki para volar y la primera aparición de los Koapalingos.",
+    "imagenUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,h_360,w_640/b_white/f_auto/q_auto/ncom/software/switch/70010000000441/619a896d8f58bd612fb947d1a24d86a63636f338d380eb9a2a7a44f2c8d20e21"
+  }
+]

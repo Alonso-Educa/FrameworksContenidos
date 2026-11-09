@@ -1,0 +1,4 @@
+.nota { color: #666; margin-top: 0; }
+.barra { flex: 1 1 160px; height: 12px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+.relleno { height: 100%; background: var(--rojo); transition: width .3s; }
+.panel input[type='text'] { flex: 1 1 220px; }

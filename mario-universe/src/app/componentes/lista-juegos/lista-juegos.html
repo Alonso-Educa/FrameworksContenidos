@@ -1,0 +1,81 @@
+<h2>Catálogo del Universo Mario</h2>
+
+<!-- MÉTRICAS: signals computed del servicio. Se actualizan solas. -->
+<section class="panel">
+  <span>Total: <strong>{{ servicio.total() }}</strong></span>
+  <span>Spin-offs: <strong>{{ servicio.totalSpinOffs() }}</strong></span>
+  <span>Favoritos: <strong>{{ servicio.totalFavoritos() }}</strong></span>
+  <span>Mostrando: <strong>{{ juegosFiltrados().length }}</strong></span>
+</section>
+
+<!-- FILTROS -->
+<section class="panel">
+  <!-- Patrón 1 (sin ngModel): [value] baja el dato, (input) sube lo que escribe el usuario -->
+  <input type="text" placeholder="Buscar por título..." [value]="filtro()" (input)="alEscribirFiltro($event)" />
+
+  <!-- Patrón 2 (con ngModel): [ngModel] baja el dato, (ngModelChange) sube el nuevo valor -->
+  <select [ngModel]="categoria()" (ngModelChange)="categoria.set($event)">
+    <option value="Todas">Todas las categorías</option>
+    <option value="Principal">Principal</option>
+    <option value="Spin-off">Spin-off</option>
+  </select>
+
+  <label>
+    <input type="checkbox" [checked]="soloFavoritos()" (change)="alternarSoloFavoritos()" />
+    Solo favoritos
+  </label>
+
+  <button class="btn btn-peligro" (click)="limpiarFiltros()">Limpiar</button>
+  <button class="btn" (click)="alternarFormulario()">
+    {{ mostrarFormulario() ? 'Cerrar formulario' : '+ Añadir juego' }}
+  </button>
+  <button class="btn btn-secundario" (click)="servicio.restaurarCatalogo()">Restaurar catálogo</button>
+</section>
+
+<!-- FORMULARIO DE ALTA: solo existe en el DOM mientras mostrarFormulario() sea true -->
+@if (mostrarFormulario()) {
+  <section class="panel formulario">
+    <input type="text" placeholder="Título" [ngModel]="nuevoTitulo()" (ngModelChange)="nuevoTitulo.set($event)" />
+    <input type="text" placeholder="Plataforma" [ngModel]="nuevaPlataforma()" (ngModelChange)="nuevaPlataforma.set($event)" />
+    <input type="number" placeholder="Año" [ngModel]="nuevoAnio()" (ngModelChange)="nuevoAnio.set($event)" />
+
+    <select [ngModel]="nuevaCategoria()" (ngModelChange)="nuevaCategoria.set($event)">
+      <option value="Principal">Principal</option>
+      <option value="Spin-off">Spin-off</option>
+    </select>
+
+    <select [ngModel]="nuevoGenero()" (ngModelChange)="nuevoGenero.set($event)">
+      @for (g of generos; track g) {
+        <option [value]="g">{{ g }}</option>
+      }
+    </select>
+
+    <button class="btn" (click)="agregar()">Guardar juego</button>
+
+    @if (errorFormulario()) {
+      <p class="error-form">{{ errorFormulario() }}</p>
+    }
+  </section>
+}
+
+<!-- ESTADOS: cargando, error o listado -->
+@if (servicio.cargando()) {
+  <p class="aviso">Cargando catálogo desde la API...</p>
+} @else if (servicio.error()) {
+  <p class="aviso error">{{ servicio.error() }}</p>
+} @else {
+  <div class="grid">
+    <!-- track: campo único para que Angular solo redibuje la tarjeta que cambia -->
+    @for (juego of juegosFiltrados(); track juego.id) {
+      <!-- [dato] baja datos al hijo · (evento) recibe los avisos del hijo -->
+      <app-juego-card
+        [juego]="juego"
+        [favorito]="esFavorito(juego.id)"
+        (onToggleFavorito)="alternarFavorito($event)"
+        (onEliminar)="eliminar($event)"
+      />
+    } @empty {
+      <p class="aviso">No hay juegos que coincidan con los filtros.</p>
+    }
+  </div>
+}

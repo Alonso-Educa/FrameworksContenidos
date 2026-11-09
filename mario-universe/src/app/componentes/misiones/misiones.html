@@ -1,0 +1,39 @@
+<h2>Misiones</h2>
+<p class="nota">Datos de ejemplo de JSONPlaceholder (los títulos vienen del servidor).</p>
+
+<section class="panel">
+  <span>Total: <strong>{{ total() }}</strong></span>
+  <span>Completadas: <strong>{{ completadas() }}</strong></span>
+  <span>Progreso: <strong>{{ porcentaje() }}%</strong></span>
+
+  <!-- [style.width.%] enlaza un estilo CSS con su unidad -->
+  <div class="barra"><div class="relleno" [style.width.%]="porcentaje()"></div></div>
+
+  <button class="btn btn-secundario" (click)="cargar()">Recargar (GET)</button>
+</section>
+
+<!-- FORMULARIO (POST). keyup.enter = el evento solo salta al pulsar Enter -->
+<section class="panel">
+  <input
+    type="text"
+    placeholder="Nueva misión..."
+    [ngModel]="nuevoTitulo()"
+    (ngModelChange)="nuevoTitulo.set($event)"
+    (keyup.enter)="agregar()"
+  />
+  <button class="btn" (click)="agregar()">Añadir misión (POST)</button>
+</section>
+
+@if (error()) {
+  <p class="aviso error">{{ error() }}</p>
+}
+
+@if (cargando()) {
+  <p class="aviso">Cargando misiones desde la API...</p>
+} @else {
+  @for (m of misiones(); track m.id) {
+    <app-mision-item [mision]="m" (onToggle)="alternar($event)" (onDelete)="eliminar($event)" />
+  } @empty {
+    <p class="aviso">No hay misiones pendientes.</p>
+  }
+}
