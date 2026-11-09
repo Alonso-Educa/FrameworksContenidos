@@ -1,0 +1,36 @@
+<!-- Ejercicio 1 -->
+<!-- <app-catalogo></app-catalogo> -->
+ 
+<!-- Ejercicio 3: -->
+<!-- <app-lista-deseos></app-lista-deseos> -->
+
+<!-- Ejercicio 4: -->
+<div class="contenedor">
+  <h1>Gestor de Resenas REST</h1>
+  @if (cargando()) {
+    <p class="cargando">Cargando resenas desde la API pública...</p>
+  }
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <div class="panel-metricas">
+    <p>
+      Total: <strong>{{ totalResenas() }}</strong>
+    </p>
+  </div>
+
+  <div class="lista-resenas">
+    @for (r of resenas(); track r.id) {
+      <app-lista-resenas
+        [resena]="r"
+        (onDelete)="eliminarResena($event)"
+      >
+      </app-lista-resenas>
+    } @empty {
+      @if (!cargando()) {
+        <p>No hay resenas pendientes en la lista.</p>
+      }
+    }
+  </div>
+</div>

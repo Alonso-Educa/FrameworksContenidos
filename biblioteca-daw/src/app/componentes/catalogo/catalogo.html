@@ -1,0 +1,42 @@
+<h2>Biblioteca de libros</h2>
+<button (click)="toggleVista()">
+    Cambiar a vista {{ mostrarModoCompacto() ? 'Detallada' : 'Compacta' }}
+</button>
+<hr />
+@if (mostrarModoCompacto()) {
+<!-- Vista Compacta (Solo lista) -->
+<ul>
+    @for (libro of libros(); track libro.id) {
+    <li>
+        <strong>{{ libro.titulo }}</strong> - Páginas: {{ libro.paginas }} - Estado: {{ libro.leido ? "Leido" : "Pendiente"}}
+    </li>
+    }
+</ul>
+} @else {
+<!-- Vista Detallada (Tarjetas completas con botones) -->
+<!-- (Aquí va el contenedor con tarjetas que hicimos en las misiones anteriores) -->
+<div class="grid-libros">
+    <h2>Leídos: {{totalLeidos()}} de {{totalLibros()}} - Páginas pendientes: {{paginasPendientes()}}</h2>
+    @for (libro of libros(); track libro.id) {
+    <div class="card-libro">
+        <h3>{{ libro.titulo }}</h3>
+        <p>Paginas: {{ libro.paginas }}</p>
+        @if (libro.leido == true) {
+        <span style="color: green;">Estado: Leído</span>
+        } @else {
+        <span style="color: orange;">Estado: Pendiente</span>
+        }
+        @if(libro.leido){
+        <button (click)="cambiarLeido(libro.id)">Marcar como pendiente</button>
+        }@else{
+        <button (click)="cambiarLeido(libro.id)">Marcar como leido</button>
+        }
+    </div>
+    } @empty {
+    <p>No hay libros disponibles en la biblioteca.</p>
+    }
+</div>
+
+<br /><br />
+<button (click)="vaciarCatalogo()">Vaciar catálogo</button>
+}
